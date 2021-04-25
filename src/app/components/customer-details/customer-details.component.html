@@ -1,18 +1,25 @@
-<div class="container mainContainer" (window:resize)="onResize($event)">
+<div class="container mainContainer" (window:resize)="onResize($event)" *ngIf="tableData">
   <div class="row">
     <div class="col-xl-7 col-lg-7 col-md-12 col-12">
-      <div class="card mt-3 highChartParCont" id="chartHeight" [style.height.px]="chartHeight" *ngIf="chartOptions">
-        <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" (chartInstance)="getChartInstance($event)"
-          class="highChartCont"></highcharts-chart>
+      <div class="card mt-3 highChartParCont" id="chartHeight" [style.height.px]="chartHeight" *ngIf="chartOptions && tableData">
+        <highcharts-chart 
+          [Highcharts]="Highcharts" 
+          [options]="chartOptions" 
+          (chartInstance)="getChartInstance($event)"
+          class="highChartCont">
+        </highcharts-chart>
       </div>
     </div>
     <div class="col-xl-5 col-lg-5 col-md-12 col-12 mt-3">
       <div class="col percentage" [style.height.px]="chartHeight/2">
         <span>
-          <h1 class="heading">{{percentage}} % <i class="material-icons-round material-icons-new"
+          <h1 class="heading">{{percentage}} %
+            <i 
+              class="material-icons-round material-icons-new"
               fontSet="material-icons-outlined">
               arrow_upward
-            </i></h1>
+            </i>
+          </h1>
         </span>
 
       </div>
@@ -20,9 +27,12 @@
         <div class="row no-gutters">
           <div class="col-xl-4 col-lg-4 col-md-4 col-12">
             <div class="col personDiv">
-              <span><i class="material-icons heading person_image">
+              <span>
+                <i 
+                  class="material-icons heading person_image">
                   person
-                </i></span>
+                </i>
+              </span>
             </div>
           </div>
           <div class="col-xl-8 col-lg-8 col-md-8 col-12 personDetails">
@@ -30,15 +40,15 @@
               <table class="usertable">
                 <tr>
                   <td class="label">Name:</td>
-                  <td class="value">&nbsp;Rakesh</td>
+                  <td class="value">&nbsp;{{tableData[0]['name']}}</td>
                 </tr>
                 <tr>
                   <td class="label">UserName:</td>
-                  <td class="value">&nbsp;rakeshram.r9</td>
+                  <td class="value">&nbsp;{{tableData[0]['username']}}</td>
                 </tr>
                 <tr>
                   <td class="label">Email:</td>
-                  <td class="value">&nbsp;rakeshram.r93@gmail.com</td>
+                  <td class="value">&nbsp;{{tableData[0]['email']}}</td>
                 </tr>
               </table>
             </div>

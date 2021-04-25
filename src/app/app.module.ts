@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HighchartsChartModule } from 'highcharts-angular';
-import {MatIconModule} from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +14,7 @@ import {MatIconModule} from '@angular/material/icon';
     BrowserModule,
     BrowserAnimationsModule,
     HighchartsChartModule,
-    MatIconModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

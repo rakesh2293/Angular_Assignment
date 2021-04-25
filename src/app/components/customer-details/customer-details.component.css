@@ -10,15 +10,6 @@
 
 }
 
-#container {
-    height: 420px; 
-}
-
-.highcharts-figure, .highcharts-data-table table {
-    min-width: 350px; 
-    max-width: 700px;
-    margin: 1em auto;
-}
 .personDiv {
     text-align: center;
     height: 120px;
@@ -52,4 +43,10 @@
     font-size:100px
 }
 
+
+@media only screen  and (min-width: 400px) and (max-width: 600px) {
+    .personDetails {
+        border-left:none
+    }
+  }
 
