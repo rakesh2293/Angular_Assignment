@@ -1,0 +1,76 @@
+<div class="container mainContainer" (window:resize)="onResize($event)">
+  <div class="row">
+    <div class="col-xl-7 col-lg-7 col-md-12 col-12">
+      <div class="card mt-3 highChartParCont" id="chartHeight" [style.height.px]="chartHeight" *ngIf="chartOptions">
+        <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" (chartInstance)="getChartInstance($event)"
+          class="highChartCont"></highcharts-chart>
+      </div>
+    </div>
+    <div class="col-xl-5 col-lg-5 col-md-12 col-12 mt-3">
+      <div class="col percentage" [style.height.px]="chartHeight/2">
+        <span>
+          <h1 class="heading">{{percentage}} % <i class="material-icons-round material-icons-new"
+              fontSet="material-icons-outlined">
+              arrow_upward
+            </i></h1>
+        </span>
+
+      </div>
+      <div class="card mainContainer mt-2">
+        <div class="row no-gutters">
+          <div class="col-xl-4 col-lg-4 col-md-4 col-12">
+            <div class="col personDiv">
+              <span><i class="material-icons heading person_image">
+                  person
+                </i></span>
+            </div>
+          </div>
+          <div class="col-xl-8 col-lg-8 col-md-8 col-12 personDetails">
+            <div class="card-body">
+              <table class="usertable">
+                <tr>
+                  <td class="label">Name:</td>
+                  <td class="value">&nbsp;Rakesh</td>
+                </tr>
+                <tr>
+                  <td class="label">UserName:</td>
+                  <td class="value">&nbsp;rakeshram.r9</td>
+                </tr>
+                <tr>
+                  <td class="label">Email:</td>
+                  <td class="value">&nbsp;rakeshram.r93@gmail.com</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-12 mt-1 tableDiv">
+      <table class="table table-bordered tableDiv">
+        <thead>
+          <tr style="text-align: center;">
+            <th>S.NO</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>City</th>
+            <th>Pincode</th>
+            <th>Companyname</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="tableData" *ngFor="let tabledata of tableData">
+            <td>{{tabledata['id']}}</td>
+            <td>{{tabledata['name']}}</td>
+            <td>{{tabledata['username']}}</td>
+            <td>{{tabledata['address']['city']}}</td>
+            <td>{{tabledata['address']['zipcode']}}</td>
+            <td>{{tabledata['company']['name']}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
